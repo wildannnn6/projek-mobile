@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">WildanFahrezy_3TIB</string>
+
+    <string name="deskripsi"> Aplikasi jurnal harian
+        digital dengan sensasi menulis di atas kertas.
+        Dirancang untuk membantu mahasiswa mengekspresikan perasaan,
+        melacak mood harian, dan menjaga kesehatan mental dari stres perkuliahan.</string>
+
+    <string name="deskripsi2" >📝 Paper View Mode (Antarmuka menyerupai kertas asli)
+                😊 Mood dan Emoji Selector (Pilihan perasaan harian)
+        \n
+                📅 Automatic Date (Tanggal otomatis saat menulis)</string>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="hint">#22396F</color>
+    <color name="buton">#0D1C42</color>
+    <color name="background_utama">#9B7213</color>
+    <color name="text_utama">#2C2A29</color>
+    <color name="tombol">#C4724E</color>
+    <color name="tambahan">#E8D5B5</color>
+</resources>
