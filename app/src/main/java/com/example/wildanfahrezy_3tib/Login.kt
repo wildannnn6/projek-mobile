@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.Toast
 
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -32,27 +33,38 @@ class Login : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+
+
+
+
         //val tombolLogin : Button = findViewById(R.id.BtnLogin)
         //val usr : EditText = findViewById(R.id.edtusr)
         //val pwd : EditText = findViewById(R.id.edtpwd)
-
         //tombolLogin.setOnClickListener {
 
+
+        val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
+
         binding.BtnLogin.setOnClickListener {
-            val usr = binding.edtusr.text.toString()
-            val pwd = binding.edtpwd.text.toString()
+            val user = binding.edtusr.text.toString()
+            val pass = binding.edtpwd.text.toString()
 
-            Log.e("Hasil", "Username $usr Password $pwd")
+            if (user.isNotEmpty() && user == pass) {
+                val editor = sharedPref.edit()
+                editor.putBoolean("isLogin", true)
+                editor.putString("username", user)
+                editor.apply()
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
+            } else {
 
-            Toast.makeText(this, "Username $usr Password $pwd", Toast.LENGTH_SHORT).show()
-
-            val intent = Intent(this, MainActivity::class.java)
-            intent.putExtra("username", usr)
-            intent.putExtra("password", pwd)
-            intent.putExtra("umur", 1945)
-
-
-            startActivity(intent)
+                AlertDialog.Builder(this)
+                    .setTitle("Login Gagal")
+                    .setMessage("Silahkan coba lagi")
+                    .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
+                    .show()
+            }
         }
     }
 }

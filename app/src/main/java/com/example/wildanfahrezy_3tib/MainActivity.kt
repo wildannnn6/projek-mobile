@@ -4,11 +4,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.wildanfahrezy_3tib.databinding.ActivityMainBinding
 import com.example.wildanfahrezy_3tib.pertemuan5.LimaActivity
+import com.example.wildanfahrezy_3tib.pertemuan6.SixthActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 
@@ -31,6 +33,8 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
 
         val usr = intent.getStringExtra("username")
         val pwd = intent.getStringExtra("password")
@@ -61,20 +65,20 @@ class MainActivity : AppCompatActivity() {
                 .show()
         }
 
-        binding.btnAlertDialog.setOnClickListener {
-            MaterialAlertDialogBuilder(this)
-                .setTitle("Konfirmasi Logout")
-                .setMessage("Apakah Anda yakin ingin keluar dari aplikasi?")
-                .setNegativeButton("Tidak") { dialog, _ ->
+        binding.btnLogout.setOnClickListener {
+            AlertDialog.Builder(this)
+                .setTitle("Logout")
+                .setMessage("Apakah Anda yakin ingin keluar?")
+                .setPositiveButton("Ya") { dialog, _ ->
+                    val editor = sharedPref.edit()
+                    editor.clear()
+                    editor.apply()
                     dialog.dismiss()
-                }
-                .setPositiveButton("Ya") { _, _ ->
-                    val intent = Intent(this, Login::class.java)
-                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                    startActivity(intent)
+                    startActivity(Intent(this, Login::class.java))
+
                     finish()
                 }
-                .setCancelable(false)
+                .setNegativeButton("Batal") { dialog, _ -> dialog.dismiss() }
                 .show()
         }
 
@@ -90,5 +94,10 @@ class MainActivity : AppCompatActivity() {
         binding.btnToLima.setOnClickListener{
             startActivity(Intent(this, LimaActivity::class.java))
         }
+
+        binding.btnToSix.setOnClickListener{
+            startActivity(Intent(this, SixthActivity::class.java))
+        }
+
     }
 }
