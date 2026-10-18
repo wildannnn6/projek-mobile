@@ -23,17 +23,16 @@ class SplashScreen : AppCompatActivity() {
             insets
         }
 
-        val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
-// Kondisi jika isLogin bernilai true
+        val sharedPref = getSharedPreferences("Mindsheet", MODE_PRIVATE)
         val isLogin = sharedPref.getBoolean("isLogin", false)
         if (isLogin) {
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, mainMindhseet::class.java))
             finish()
             return
         }
 
         lifecycleScope.launch {
-            delay(2000) // simulasi pengambilan data selama 2 detik
+            delay(2000)
             val intent = Intent(this@SplashScreen, Login::class.java)
             startActivity(intent)
             finish()

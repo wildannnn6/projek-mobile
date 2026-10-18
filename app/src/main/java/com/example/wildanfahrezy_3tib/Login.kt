@@ -35,16 +35,7 @@ class Login : AppCompatActivity() {
         }
 
 
-
-
-
-        //val tombolLogin : Button = findViewById(R.id.BtnLogin)
-        //val usr : EditText = findViewById(R.id.edtusr)
-        //val pwd : EditText = findViewById(R.id.edtpwd)
-        //tombolLogin.setOnClickListener {
-
-
-        val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
+        val sharedPref = getSharedPreferences("Mindsheet", MODE_PRIVATE)
 
         binding.BtnLogin.setOnClickListener {
             val user = binding.edtusr.text.toString()
@@ -55,7 +46,7 @@ class Login : AppCompatActivity() {
                 editor.putBoolean("isLogin", true)
                 editor.putString("username", user)
                 editor.apply()
-                startActivity(Intent(this, MainActivity::class.java))
+                startActivity(Intent(this, mainMindhseet::class.java))
                 finish()
             } else {
 
