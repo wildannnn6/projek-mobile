@@ -35,7 +35,7 @@ class Login : AppCompatActivity() {
         }
 
 
-        val sharedPref = getSharedPreferences("Mindsheet", MODE_PRIVATE)
+        val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
 
         binding.BtnLogin.setOnClickListener {
             val user = binding.edtusr.text.toString()
@@ -46,7 +46,7 @@ class Login : AppCompatActivity() {
                 editor.putBoolean("isLogin", true)
                 editor.putString("username", user)
                 editor.apply()
-                startActivity(Intent(this, mainMindhseet::class.java))
+                startActivity(Intent(this, BaseActivity::class.java))
                 finish()
             } else {
 

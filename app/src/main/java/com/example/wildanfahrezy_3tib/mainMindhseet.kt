@@ -7,7 +7,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.wildanfahrezy_3tib.databinding.ActivityMainBinding
 import com.example.wildanfahrezy_3tib.databinding.ActivityMainMindhseetBinding
 
 class mainMindhseet : AppCompatActivity() {

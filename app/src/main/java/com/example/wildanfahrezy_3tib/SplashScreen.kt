@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
-import com.example.wildanfahrezy_3tib.databinding.ActivityMainBinding
 import com.example.wildanfahrezy_3tib.databinding.ActivitySplashScreenBinding
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -23,10 +22,10 @@ class SplashScreen : AppCompatActivity() {
             insets
         }
 
-        val sharedPref = getSharedPreferences("Mindsheet", MODE_PRIVATE)
+        val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
         val isLogin = sharedPref.getBoolean("isLogin", false)
         if (isLogin) {
-            startActivity(Intent(this, mainMindhseet::class.java))
+            startActivity(Intent(this, BaseActivity::class.java))
             finish()
             return
         }

@@ -1,54 +1,53 @@
-package com.example.wildanfahrezy_3tib.pertemuan5
+package com.example.wildanfahrezy_3tib.Home.pertemuan6
 
 import android.os.Bundle
 import android.view.MenuItem
-import android.webkit.WebViewClient
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.Fragment
 import com.example.wildanfahrezy_3tib.R
-import com.example.wildanfahrezy_3tib.databinding.ActivityLimaBinding
-import com.example.wildanfahrezy_3tib.databinding.ActivityWebViewBinding
+import com.example.wildanfahrezy_3tib.databinding.ActivitySixthBinding
 
-class WebViewActivity : AppCompatActivity() {
+class SixthActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityWebViewBinding
+    private lateinit var binding: ActivitySixthBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-
-
-        binding= ActivityWebViewBinding.inflate(layoutInflater)
+        binding= ActivitySixthBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
         supportActionBar?.apply {
-            title = "POLITEKNIK CALTEX RUAI"
+            title = "Activity Sixth"
+            subtitle = "Penerapan Fragment"
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
-//            setHomeAsUpIndicator(R.drawable.ic_arrow_back)
-
+            setHomeAsUpIndicator(R.drawable.ice_arrow_back)
         }
+// Menampilkan fragment pertama secara default
+        replaceFragment(SatuFragment(), addToBackStack = false)
+// Setup event click untuk mengganti fragment
+        binding.btnFragment1.setOnClickListener { replaceFragment(SatuFragment()) }
+        binding.btnFragment2.setOnClickListener { replaceFragment(DuaFragment()) }
+        binding.btnFragment3.setOnClickListener { replaceFragment(TigaFragment()) }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+    }
 
-        binding.webView.webViewClient = WebViewClient()
-        binding.webView.settings.javaScriptEnabled = true
-        binding.webView.loadUrl("https://pcr.ac.id")
-        setSupportActionBar(binding.toolbar)
-        supportActionBar?.apply {
-            title = "Web Merdeka"
-            setDisplayHomeAsUpEnabled(true)
-            setDisplayShowHomeEnabled(true)
-            setHomeAsUpIndicator(R.drawable.ice_arrow_back)
-        }
+    private fun replaceFragment(fragment: Fragment, addToBackStack: Boolean = true) {
+        val transaction = supportFragmentManager.beginTransaction()
+            .replace(binding.fragmentContainer.id, fragment)
+        if (addToBackStack) transaction.addToBackStack(null)
+        transaction.commit()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -61,3 +60,4 @@ class WebViewActivity : AppCompatActivity() {
         }
     }
 }
+
