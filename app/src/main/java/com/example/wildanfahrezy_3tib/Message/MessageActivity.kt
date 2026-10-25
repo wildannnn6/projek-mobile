@@ -26,10 +26,10 @@ class MessageActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val nama = intent.getStringExtra("SENDER")
-        val pesan = intent.getStringExtra("PESAN")
+        val kategori = intent.getStringExtra("SENDER")
+        val pesanAfirmasi = intent.getStringExtra("PESAN")
 
-        binding.txtNama.text = nama
-        binding.txtPesan.text = pesan
+        binding.txtNama.text = kategori
+        binding.txtPesan.text = pesanAfirmasi
     }
 }

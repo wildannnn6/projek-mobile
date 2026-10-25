@@ -14,16 +14,46 @@ class MessageFragment : Fragment() {
     private var _binding: FragmentMessageBinding? = null
     private val binding get() = _binding!!
     private val messageList = listOf(
-        MessageModel("Alya", "Halo! Apa kabar?", "https://i.pravatar.cc/150?img=1"),
-        MessageModel("Budi", "Sudah makan?", "https://i.pravatar.cc/150?img=2"),
-        MessageModel("Citra", "Jangan lupa tugasnya ya!", "https://i.pravatar.cc/150?img=3"),
-        MessageModel("Dika", "Besok kita rapat jam 9", "https://i.pravatar.cc/150?img=4"),
-        MessageModel("Eka", "Nice job kemarin!", "https://i.pravatar.cc/150?img=5"),
-        MessageModel("patur", "Lagi ngapain?", "https://i.pravatar.cc/150?img=6"),
-        MessageModel("Gita", "Boleh minta tolong?", "https://i.pravatar.cc/150?img=7"),
-        MessageModel("Hana", "Lihat email ya", "https://i.pravatar.cc/150?img=8"),
-        MessageModel("Irfan", "Oke noted", "https://i.pravatar.cc/150?img=9"),
-        MessageModel("Joko", "Sampai jumpa besok", "https://i.pravatar.cc/150?img=10")
+        MessageModel(
+            "Ketenangan Diri",
+            "Aku berhak beristirahat. Tidak semua hal harus kuselesaikan detik ini juga.",
+            "https://picsum.photos/id/10/150/150"
+        ),
+        MessageModel(
+            "Self-Love",
+            "Aku bangga pada diriku yang terus bertahan dan belajar berkembang sejauh ini.",
+            "https://picsum.photos/id/152/150/150"
+        ),
+        MessageModel(
+            "Fokus & Belajar",
+            "Proses belajarku berharga. Aku percaya pada kemampuan yang aku usahakan hari ini.",
+            "https://picsum.photos/id/24/150/150"
+        ),
+        MessageModel(
+            "Atasi Overthinking",
+            "Kekhawatiran tidak mengubah masa depan. Hari ini aku memilih untuk fokus pada saat ini.",
+            "https://picsum.photos/id/1015/150/150"
+        ),
+        MessageModel(
+            "Semangat & Harapan",
+            "Setiap hari baru membawa kesempatan baru untuk bertumbuh dan merasa bahagia.",
+            "https://picsum.photos/id/1018/150/150"
+        ),
+        MessageModel(
+            "Penerimaan Diri",
+            "Tidak apa-apa jika merasa lelah. Yang terpenting adalah aku tidak berhenti berusaha.",
+            "https://picsum.photos/id/28/150/150"
+        ),
+        MessageModel(
+            "Kesehatan Mental",
+            "Pikiranku adalah ruang yang damai. Aku memilih untuk melepaskan beban yang tak perlu.",
+            "https://picsum.photos/id/1050/150/150"
+        ),
+        MessageModel(
+            "Apresiasi Diri",
+            "Setiap langkah kecil yang kuambil hari ini adalah sebuah kemajuan yang berarti.",
+            "https://picsum.photos/id/1060/150/150"
+        )
     )
 
     override fun onCreateView(
@@ -37,7 +67,7 @@ class MessageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
-        (requireActivity() as AppCompatActivity).supportActionBar?.title = "Message"
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = "Afirmasi Positif"
 
         val adapter = MessageAdapter(requireContext(), messageList)
         binding.listMessageItems.adapter = adapter

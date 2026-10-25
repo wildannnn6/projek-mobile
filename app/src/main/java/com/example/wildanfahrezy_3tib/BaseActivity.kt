@@ -7,7 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
+import com.example.wildanfahrezy_3tib.Home.DetailFragment
 import com.example.wildanfahrezy_3tib.Home.HomeFragment
+import com.example.wildanfahrezy_3tib.Home.MainMindsheetFragment
 import com.example.wildanfahrezy_3tib.Message.MessageFragment
 import com.example.wildanfahrezy_3tib.More.MoreFragment
 import com.example.wildanfahrezy_3tib.databinding.ActivityBaseBinding
@@ -30,12 +32,12 @@ class BaseActivity : AppCompatActivity() {
             insets
         }
 
-        replaceFragment(HomeFragment())
+        replaceFragment(MainMindsheetFragment())
 
         binding.bottomNavView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.home -> {
-                    replaceFragment(HomeFragment())
+                    replaceFragment(MainMindsheetFragment())
                     true
                 }
                 R.id.message -> {
@@ -43,7 +45,7 @@ class BaseActivity : AppCompatActivity() {
                     true
                 }
                 R.id.more -> {
-                    replaceFragment(MoreFragment())
+                    replaceFragment(DetailFragment())
                     true
                 }
                 else -> false // false jika item tidak dikenal

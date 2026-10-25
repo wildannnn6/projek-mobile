@@ -41,9 +41,6 @@ class HomeFragment : Fragment() {
         Log.e("Hasil", "umur $umur Username $usr Password $pwd")
 
 
-        binding.txtUsername.text = usr
-        binding.txtPassword.setText(pwd)
-
         binding.btnDetail.setOnClickListener {
             val intent = Intent(requireContext(), DetailActivity::class.java)
             startActivity(intent)

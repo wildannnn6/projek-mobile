@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.wildanfahrezy_3tib.databinding.ActivityHalamanTulisBinding
-import com.example.wildanfahrezy_3tib.databinding.ActivityMainMindhseetBinding
 
 class halaman_tulis : AppCompatActivity() {
 

@@ -7,7 +7,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.wildanfahrezy_3tib.databinding.ActivityMainMindhseetBinding
 import com.example.wildanfahrezy_3tib.databinding.ActivitySettingBinding
 
 class Setting : AppCompatActivity() {

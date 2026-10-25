@@ -22,10 +22,11 @@ class MessageAdapter(
         Glide.with(context)
             .load(data.avatarUrl)
             .into(binding.avatarImg)
+
         binding.textSender.text = data.senderName
         binding.textMessage.text = data.messageText
-        view.setOnClickListener {
 
+        view.setOnClickListener {
             val i = Intent(context, MessageActivity::class.java)
             i.putExtra("SENDER", data.senderName)
             i.putExtra("PESAN", data.messageText)

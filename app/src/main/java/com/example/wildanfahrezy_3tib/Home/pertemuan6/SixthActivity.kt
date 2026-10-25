@@ -23,8 +23,7 @@ class SixthActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbar)
         supportActionBar?.apply {
-            title = "Activity Sixth"
-            subtitle = "Penerapan Fragment"
+            title = "Panduan Self-Care"
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
             setHomeAsUpIndicator(R.drawable.ice_arrow_back)
