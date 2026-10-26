@@ -35,7 +35,7 @@ class Login : AppCompatActivity() {
         }
 
 
-        val sharedPref = getSharedPreferences("Mindsheet", MODE_PRIVATE)
+        val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
 
         binding.BtnLogin.setOnClickListener {
             val user = binding.edtusr.text.toString()

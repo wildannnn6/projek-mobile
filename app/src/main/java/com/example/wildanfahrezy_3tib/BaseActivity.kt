@@ -32,12 +32,12 @@ class BaseActivity : AppCompatActivity() {
             insets
         }
 
-        replaceFragment(MainMindsheetFragment())
+        replaceFragment(HomeFragment())
 
         binding.bottomNavView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.home -> {
-                    replaceFragment(MainMindsheetFragment())
+                    replaceFragment(HomeFragment())
                     true
                 }
                 R.id.message -> {
@@ -45,7 +45,7 @@ class BaseActivity : AppCompatActivity() {
                     true
                 }
                 R.id.more -> {
-                    replaceFragment(DetailFragment())
+                    replaceFragment(MoreFragment())
                     true
                 }
                 else -> false // false jika item tidak dikenal

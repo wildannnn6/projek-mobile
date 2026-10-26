@@ -12,6 +12,7 @@ import androidx.appcompat.app.AlertDialog
 import com.example.wildanfahrezy_3tib.DetailActivity
 import com.example.wildanfahrezy_3tib.Home.pertemuan5.LimaActivity
 import com.example.wildanfahrezy_3tib.Home.pertemuan6.SixthActivity
+import com.example.wildanfahrezy_3tib.Home.pertemuan9.NineActivity
 import com.example.wildanfahrezy_3tib.Login
 import com.example.wildanfahrezy_3tib.R
 import com.example.wildanfahrezy_3tib.databinding.FragmentHomeBinding
@@ -92,6 +93,10 @@ class HomeFragment : Fragment() {
 
         binding.btnToSix.setOnClickListener{
             startActivity(Intent(requireContext(), SixthActivity::class.java))
+        }
+
+        binding.btnToSembilan.setOnClickListener{
+            startActivity(Intent(requireContext(), NineActivity::class.java))
         }
 
     }

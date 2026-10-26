@@ -22,7 +22,7 @@ class SplashScreen : AppCompatActivity() {
             insets
         }
 
-        val sharedPref = getSharedPreferences("Mindsheet", MODE_PRIVATE)
+        val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
         val isLogin = sharedPref.getBoolean("isLogin", false)
         if (isLogin) {
             startActivity(Intent(this, BaseActivity::class.java))
