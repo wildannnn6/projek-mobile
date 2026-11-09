@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import com.example.wildanfahrezy_3tib.DetailActivity
+import com.example.wildanfahrezy_3tib.Home.pertemuan10.TenthActivity
 import com.example.wildanfahrezy_3tib.Home.pertemuan5.LimaActivity
 import com.example.wildanfahrezy_3tib.Home.pertemuan6.SixthActivity
 import com.example.wildanfahrezy_3tib.Home.pertemuan9.NineActivity
@@ -97,6 +98,9 @@ class HomeFragment : Fragment() {
 
         binding.btnToSembilan.setOnClickListener{
             startActivity(Intent(requireContext(), NineActivity::class.java))
+        }
+        binding.btnToTenth.setOnClickListener{
+            startActivity(Intent(requireContext(), TenthActivity::class.java))
         }
 
     }
