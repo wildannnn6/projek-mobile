@@ -52,6 +52,7 @@ class Login : AppCompatActivity() {
 
                 AlertDialog.Builder(this)
                     .setTitle("Login Gagal")
+
                     .setMessage("Silahkan coba lagi")
                     .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
                     .show()
