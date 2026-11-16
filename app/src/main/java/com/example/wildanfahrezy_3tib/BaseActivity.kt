@@ -12,6 +12,7 @@ import com.example.wildanfahrezy_3tib.Home.HomeFragment
 import com.example.wildanfahrezy_3tib.Home.MainMindsheetFragment
 import com.example.wildanfahrezy_3tib.Message.MessageFragment
 import com.example.wildanfahrezy_3tib.More.MoreFragment
+import com.example.wildanfahrezy_3tib.Note.NoteFragment
 import com.example.wildanfahrezy_3tib.databinding.ActivityBaseBinding
 import com.example.wildanfahrezy_3tib.databinding.ActivityDetailBinding
 
@@ -46,6 +47,10 @@ class BaseActivity : AppCompatActivity() {
                 }
                 R.id.more -> {
                     replaceFragment(MoreFragment())
+                    true
+                }
+                R.id.note -> {
+                    replaceFragment(NoteFragment())
                     true
                 }
                 else -> false // false jika item tidak dikenal
