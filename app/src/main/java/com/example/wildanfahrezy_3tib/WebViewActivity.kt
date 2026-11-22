@@ -1,0 +1,62 @@
+package com.example.wildanfahrezy_3tib
+
+import android.os.Bundle
+import android.view.MenuItem
+import android.webkit.WebViewClient
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import com.example.wildanfahrezy_3tib.R
+import com.example.wildanfahrezy_3tib.databinding.ActivityWebViewBinding
+
+class WebViewActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityWebViewBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+
+
+
+        binding= ActivityWebViewBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.apply {
+            title = "POLITEKNIK CALTEX RUAI"
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowHomeEnabled(true)
+//            setHomeAsUpIndicator(R.drawable.ic_arrow_back)
+
+        }
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+
+        binding.webView.webViewClient = WebViewClient()
+        binding.webView.settings.javaScriptEnabled = true
+        binding.webView.loadUrl("https://www.halodoc.com/kesehatan-mental")
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.apply {
+            title = "Web kesehatan mental"
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowHomeEnabled(true)
+            setHomeAsUpIndicator(R.drawable.ice_arrow_back)
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressedDispatcher.onBackPressed()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+}

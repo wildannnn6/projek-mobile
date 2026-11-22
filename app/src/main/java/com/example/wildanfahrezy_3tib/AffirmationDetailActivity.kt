@@ -1,0 +1,33 @@
+package com.example.wildanfahrezy_3tib
+
+import android.os.Bundle
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import com.example.wildanfahrezy_3tib.R
+import com.example.wildanfahrezy_3tib.databinding.ActivityAffirmationDetailBinding
+
+class AffirmationDetailActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityAffirmationDetailBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+
+        binding = ActivityAffirmationDetailBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+        val kategori = intent.getStringExtra("SENDER")
+        val pesanAfirmasi = intent.getStringExtra("PESAN")
+
+        binding.txtNama.text = kategori
+        binding.txtPesan.text = pesanAfirmasi
+    }
+}
