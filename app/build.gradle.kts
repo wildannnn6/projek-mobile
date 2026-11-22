@@ -1,5 +1,3 @@
-import android.databinding.tool.writer.ViewBinding
-
 plugins {
     alias(libs.plugins.android.application)
     id("com.google.devtools.ksp")
@@ -39,9 +37,9 @@ android {
 }
 
 dependencies {
-    implementation("androidx.gridlayout:gridlayout:1.0.0") // Tahap 4: GridLayout
-    implementation("androidx.viewpager2:viewpager2:1.1.0") // Tahap 5: ViewPager2
-    implementation("com.tbuonomo:dotsindicator:5.1.0") // Tahap 6: DotsIndicator
+    implementation("androidx.gridlayout:gridlayout:1.0.0") // GridLayout
+    implementation("androidx.viewpager2:viewpager2:1.1.0") // ViewPager2
+    implementation("com.tbuonomo:dotsindicator:5.1.0") // DotsIndicator
     implementation("com.github.bumptech.glide:glide:4.16.0")
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.appcompat)
@@ -52,7 +50,7 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
 
-// Tambahkan ke blok dependencies yang sudah ada.
+// Room (database lokal)
     val roomVersion = "2.8.4"
     implementation("androidx.room:room-runtime:$roomVersion")
     implementation("androidx.room:room-ktx:$roomVersion")
