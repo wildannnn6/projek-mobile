@@ -12,9 +12,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.WildanFahrezy_3TIB">
+        android:theme="@style/Theme.MindSheet">
         <activity
-            android:name=".SplashScreen"
+            android:name=".SplashActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
@@ -24,63 +24,43 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DetailActivity"
+            android:name=".ArticleActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".Home.pertemuan5.LimaActivity"
+            android:name=".WebViewActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".Home.pertemuan5.WebViewActivity"
+            android:name=".SelfCareGuideActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".Home.pertemuan6.SixthActivity"
+            android:name=".LoginActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".Login"
+            android:name=".WriteJournalActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".mainMindhseet"
+            android:name=".SettingActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".halaman_tulis"
+            android:name=".MainActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".Setting"
+            android:name=".AffirmationDetailActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".BaseActivity"
+            android:name=".AffirmationTutorialActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".Message.MessageActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name=".Home.pertemuan9.NineActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name=".Message.TutorialMessageActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name=".Home.pertemuan10.TenthActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name=".Note.NoteFromActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name=".Note.NoteFormActivity"
+            android:name=".NoteFormActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
     </application>
