@@ -7,9 +7,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.wildanfahrezy_3tib.R
 import com.example.wildanfahrezy_3tib.databinding.ActivityWebViewBinding
 
+// Dipakai ulang untuk beberapa halaman web. Alamat dan judul dikirim lewat Intent;
+// kalau tidak dikirim, otomatis membuka artikel kesehatan mental Halodoc.
 class WebViewActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityWebViewBinding
@@ -18,19 +19,8 @@ class WebViewActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-
-
-        binding= ActivityWebViewBinding.inflate(layoutInflater)
+        binding = ActivityWebViewBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        setSupportActionBar(binding.toolbar)
-        supportActionBar?.apply {
-            title = "POLITEKNIK CALTEX RUAI"
-            setDisplayHomeAsUpEnabled(true)
-            setDisplayShowHomeEnabled(true)
-//            setHomeAsUpIndicator(R.drawable.ic_arrow_back)
-
-        }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -38,16 +28,20 @@ class WebViewActivity : AppCompatActivity() {
             insets
         }
 
-        binding.webView.webViewClient = WebViewClient()
-        binding.webView.settings.javaScriptEnabled = true
-        binding.webView.loadUrl("https://www.halodoc.com/kesehatan-mental")
+        val url = intent.getStringExtra(EXTRA_URL) ?: "https://www.halodoc.com/kesehatan-mental"
+        val pageTitle = intent.getStringExtra(EXTRA_TITLE) ?: "Halodoc - Kesehatan Mental"
+
         setSupportActionBar(binding.toolbar)
         supportActionBar?.apply {
-            title = "Web kesehatan mental"
+            title = pageTitle
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
-            setHomeAsUpIndicator(R.drawable.ice_arrow_back)
+            setHomeAsUpIndicator(R.drawable.ic_back)
         }
+
+        binding.webView.webViewClient = WebViewClient()
+        binding.webView.settings.javaScriptEnabled = true
+        binding.webView.loadUrl(url)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -58,5 +52,10 @@ class WebViewActivity : AppCompatActivity() {
             }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    companion object {
+        const val EXTRA_URL = "URL"
+        const val EXTRA_TITLE = "TITLE"
     }
 }

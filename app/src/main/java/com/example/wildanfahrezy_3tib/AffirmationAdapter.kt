@@ -1,42 +1,30 @@
 package com.example.wildanfahrezy_3tib
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import com.bumptech.glide.Glide
 import com.example.wildanfahrezy_3tib.databinding.ItemAffirmationBinding
-import com.google.android.material.snackbar.Snackbar
 
 class AffirmationAdapter(
     context: Context,
-    private val messages: List<AffirmationModel>
-) : ArrayAdapter<AffirmationModel>(context, 0, messages) {
+    private val affirmations: List<AffirmationModel>
+) : ArrayAdapter<AffirmationModel>(context, 0, affirmations) {
+
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val binding = ItemAffirmationBinding.inflate(LayoutInflater.from(context), parent, false)
-        val view = binding.root
-        val data = messages[position]
-// Muat gambar dari URL ke ImageView
-        Glide.with(context)
-            .load(data.avatarUrl)
-            .into(binding.avatarImg)
+        val data = affirmations[position]
 
-        binding.textSender.text = data.senderName
-        binding.textMessage.text = data.messageText
+        // ikon kategori diambil dari drawable (tidak butuh internet)
+        binding.imgIcon.setImageResource(data.iconRes)
+        binding.textCategory.text = data.category
+        binding.textMessage.text = data.message
 
-        view.setOnClickListener {
-            val i = Intent(context, AffirmationDetailActivity::class.java)
-            i.putExtra("SENDER", data.senderName)
-            i.putExtra("PESAN", data.messageText)
-            context.startActivity(i)
-//            Snackbar.make(
-//                parent,
-//                "Pesan dari ${data.senderName}: ${data.messageText}",
-//                Snackbar.LENGTH_SHORT
-//            ).show()
+        // ketuk kartu -> buka halaman detail
+        binding.root.setOnClickListener {
+            context.startActivity(AffirmationDetailActivity.newIntent(context, data))
         }
-        return view
+        return binding.root
     }
 }

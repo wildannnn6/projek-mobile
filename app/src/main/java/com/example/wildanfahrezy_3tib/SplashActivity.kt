@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
-import com.example.wildanfahrezy_3tib.R
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -23,17 +22,13 @@ class SplashActivity : AppCompatActivity() {
         }
 
         val sharedPref = getSharedPreferences("Mindsheet", MODE_PRIVATE)
-        val isLogin = sharedPref.getBoolean("isLogin", false)
-        if (isLogin) {
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
-            return
-        }
 
         lifecycleScope.launch {
             delay(2000)
-            val intent = Intent(this@SplashActivity, LoginActivity::class.java)
-            startActivity(intent)
+            // sudah login -> langsung ke halaman utama, belum -> ke halaman login
+            val isLogin = sharedPref.getBoolean("isLogin", false)
+            val target = if (isLogin) MainActivity::class.java else LoginActivity::class.java
+            startActivity(Intent(this@SplashActivity, target))
             finish()
         }
     }

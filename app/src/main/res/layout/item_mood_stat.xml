@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingTop="6dp"
+    android:paddingBottom="6dp">
+
+    <ImageView
+        android:id="@+id/ivMood"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:contentDescription="@string/cd_mood" />
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="64dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/text_utama"
+        android:textSize="14sp" />
+
+    <ProgressBar
+        android:id="@+id/progressMood"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="10dp"
+        android:layout_weight="1"
+        android:progressBackgroundTint="@color/tambahan"
+        android:progressTint="@color/tombol" />
+
+    <TextView
+        android:id="@+id/tvCount"
+        android:layout_width="32dp"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:textColor="@color/text_utama"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+</LinearLayout>

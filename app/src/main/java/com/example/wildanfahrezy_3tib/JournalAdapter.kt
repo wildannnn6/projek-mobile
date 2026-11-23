@@ -10,9 +10,9 @@ import java.util.Date
 import java.util.Locale
 
 class JournalAdapter(
-    private val journals: List<NoteEntity>,
-    private val onClick: (NoteEntity) -> Unit,
-    private val onDelete: (NoteEntity) -> Unit
+    private val journals: List<JournalEntity>,
+    private val onClick: (JournalEntity) -> Unit,
+    private val onDelete: (JournalEntity) -> Unit
 ) : RecyclerView.Adapter<JournalAdapter.JournalViewHolder>() {
 
     class JournalViewHolder(val binding: ItemJournalBinding) :
@@ -34,18 +34,16 @@ class JournalAdapter(
     ) {
         val journal = journals[position]
 
-        // Judul kosong -> pakai isi jurnal, dua-duanya kosong -> "Empty Diary"
-        val title = if (journal.title.isNotBlank()) {
-            journal.title
-        } else if (journal.content.isNotBlank()) {
-            journal.content
-        } else {
-            "Empty Diary"
-        }
+        // Judul kosong -> tulis "Tanpa judul"
+        val title = if (journal.title.isNotBlank()) journal.title else "Tanpa judul"
         holder.binding.tvTitle.text = title
+        holder.binding.tvPreview.text = journal.content
+
+        // mood disimpan sebagai angka, diubah jadi gambar wajahnya
+        holder.binding.ivMood.setImageResource(MoodModel.get(journal.mood).iconRes)
 
         // createdAt disimpan sebagai Long (milidetik), diubah jadi teks tanggal
-        val formatter = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        val formatter = SimpleDateFormat("dd MMM yyyy, HH:mm", Locale.getDefault())
         holder.binding.tvDate.text = formatter.format(Date(journal.createdAt))
 
         holder.binding.root.setOnClickListener { onClick(journal) }

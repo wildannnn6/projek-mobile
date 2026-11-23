@@ -5,62 +5,102 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_utama"
     tools:context=".SelfCareGuideActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="0dp"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/background_utama"
-        app:subtitleTextColor="@android:color/white"
-        app:titleTextColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <Button
-        android:id="@+id/btnBreathing"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="4dp"
-        android:backgroundTint="@color/tombol"
-        android:text="Fragment 1"
-        app:layout_constraintEnd_toStartOf="@+id/btnStressAid"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
-    <Button
-        android:id="@+id/btnStressAid"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginEnd="4dp"
-        android:backgroundTint="@color/tombol"
-        android:text="Fragment 2"
-        app:layout_constraintEnd_toStartOf="@+id/btnSleep"
-        app:layout_constraintStart_toEndOf="@+id/btnBreathing"
-        app:layout_constraintTop_toTopOf="@+id/btnBreathing" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextColor="@color/buton" />
 
-    <Button
-        android:id="@+id/btnSleep"
+    <HorizontalScrollView
+        android:id="@+id/hsvTabs"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="@color/tombol"
-        android:text="Fragment 3"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="16dp"
+        android:scrollbars="none"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnStressAid"
-        app:layout_constraintTop_toTopOf="@+id/btnBreathing" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnBreathing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/tombol"
+                android:text="@string/selfcare_tab_breathing"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/btnStressAid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:backgroundTint="@color/tombol"
+                android:text="@string/selfcare_tab_stress"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/btnGrounding"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:backgroundTint="@color/tombol"
+                android:text="@string/selfcare_tab_grounding"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/btnSleep"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:backgroundTint="@color/tombol"
+                android:text="@string/selfcare_tab_sleep"
+                android:textColor="@color/white" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/bg_body_sheet"
+        app:layout_constraintBottom_toTopOf="@+id/llBottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnStressAid" />
+        app:layout_constraintTop_toBottomOf="@+id/hsvTabs" />
 
+    <LinearLayout
+        android:id="@+id/llBottom"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/tambahan"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
+        <Button
+            android:id="@+id/btnWriteFeeling"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:backgroundTint="@color/buton"
+            android:text="@string/selfcare_write"
+            android:textColor="@color/white"
+            app:icon="@drawable/ic_journal"
+            app:iconGravity="textStart"
+            app:iconTint="@color/white" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

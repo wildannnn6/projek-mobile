@@ -5,13 +5,14 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
+// version naik jadi 2 karena tabel berubah (notes -> journals, ada kolom mood)
 @Database(
-    entities = [NoteEntity::class],
-    version = 1,
+    entities = [JournalEntity::class],
+    version = 2,
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun noteDao(): NoteDao
+    abstract fun journalDao(): JournalDao
     companion object {
         @Volatile
         private var INSTANCE: AppDatabase? = null
@@ -21,7 +22,10 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "app_database"
-                ).build().also { INSTANCE = it }
+                )
+                    // data versi lama dibuang saat struktur tabel berubah
+                    .fallbackToDestructiveMigration()
+                    .build().also { INSTANCE = it }
             }
     }
 }

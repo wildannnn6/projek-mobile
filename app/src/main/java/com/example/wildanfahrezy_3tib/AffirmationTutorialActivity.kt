@@ -5,7 +5,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.wildanfahrezy_3tib.R
 import com.example.wildanfahrezy_3tib.databinding.ActivityAffirmationTutorialBinding
 
 class AffirmationTutorialActivity : AppCompatActivity() {
@@ -32,5 +31,8 @@ class AffirmationTutorialActivity : AppCompatActivity() {
         val adapter = AffirmationTutorialAdapter(this, fragmentsList)
         binding.tutorialMessageViewPager.adapter = adapter
         binding.dotIndicator.attachTo(binding.tutorialMessageViewPager)
+
+        // tombol "Mengerti" menutup tutorial
+        binding.btnCloseTutorial.setOnClickListener { finish() }
     }
 }
